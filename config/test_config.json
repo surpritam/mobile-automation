@@ -1,0 +1,10 @@
+{
+  "android_capability": {
+    "platformName": "Android",
+    "automationName": "UiAutomator2",
+    "deviceName": "Android",
+    "app": "com.fivemobile.thescore_24.2.0-24020_minAPI24_apkmirror.com.apk",
+    "appPackage": "com.fivemobile.thescore"
+  },
+  "serverUrl": "http://localhost:4723"
+}

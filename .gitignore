@@ -1,0 +1,13 @@
+allure-results/
+allure-report/
+*.log
+.venv/
+*.apk
+__pycache__/
+node-modules/
+package.json
+package-lock.json
+# IDE/Editor specific
+.vscode/
+.idea/
+*.swp
