@@ -6,6 +6,9 @@ import pytest
 from drivers.driver_factory import get_appium_driver
 from datetime import datetime
 
+from pages.page_objects_manager import PageObjectManager
+
+
 @pytest.fixture(scope="function")
 def driver(request):
     """
@@ -17,6 +20,11 @@ def driver(request):
     logging.info("Quitting the Appium driver.")
     _driver.quit()
 
+@pytest.fixture(scope="session")
+def page_manager():
+    """Session-scoped PageObjectManager fixture"""
+    manager = PageObjectManager()
+    yield manager
 
 @pytest.fixture(scope="session")
 def load_test_data(request):

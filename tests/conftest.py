@@ -8,12 +8,12 @@ from pages.welcome_page import InitialPage
 
 
 @pytest.fixture(scope='function')
-def navigate_to_home_page(driver):
-    initial_page = InitialPage(driver)
-    favorite_league_page = FavoriteLeaguePage(driver)
-    favorite_teams_page = FavoriteTeamsPage(driver)
-    notifications_page = NotificationsPage(driver)
-    favorites_landing_page = FavoritesLandingPage(driver)
+def navigate_to_home_page(driver, page_manager):
+    initial_page = page_manager.get_page(InitialPage, driver)
+    favorite_league_page = page_manager.get_page(FavoriteLeaguePage, driver)
+    favorite_teams_page = page_manager.get_page(FavoriteTeamsPage, driver)
+    notifications_page = page_manager.get_page(NotificationsPage, driver)
+    favorites_landing_page = page_manager.get_page(FavoritesLandingPage, driver)
     initial_page.navigate_initial_setup()
     favorite_league_page.continue_without_selecting()
     favorite_teams_page.choose_default_continue()
@@ -21,3 +21,4 @@ def navigate_to_home_page(driver):
     actual_text = favorites_landing_page.default_text_search_view()
     expected_title_text = "Teams, Players, and News"
     assert actual_text == expected_title_text, f"Expected title text '{expected_title_text}', but found '{actual_text}'"
+
