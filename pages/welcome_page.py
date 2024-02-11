@@ -1,7 +1,8 @@
 from appium.webdriver.common.appiumby import AppiumBy
-from pages.base_page import BasePage
 
-class InitialPage(BasePage):
+import pages
+
+class InitialPage(pages.BasePage):
     # Define locators
     __get_started_button = (AppiumBy.ID, "com.fivemobile.thescore:id/action_button_text")
 

@@ -1,9 +1,9 @@
 from appium.webdriver.common.appiumby import AppiumBy
 
-from pages.base_page import BasePage
+import pages
 
 
-class FavoriteTeamsPage(BasePage):
+class FavoriteTeamsPage(pages.BasePage):
     __follow_favorite_default_first = (AppiumBy.XPATH, "(//android.widget.ImageView[@resource-id=\"com.fivemobile.thescore:id/follow_icon\"])[1]")
     __continue_btn = (AppiumBy.ID, "com.fivemobile.thescore:id/btn_primary")
 

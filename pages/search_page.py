@@ -1,9 +1,9 @@
 from appium.webdriver.common.appiumby import AppiumBy
 
-from pages.base_page import BasePage
+import pages
 
 
-class SearchPage(BasePage):
+class SearchPage(pages.BasePage):
     __search_txt = (AppiumBy.ID,"com.fivemobile.thescore:id/search_src_text")
 
     def search(self, search_text):

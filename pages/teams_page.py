@@ -3,10 +3,10 @@ import logging
 import allure
 from appium.webdriver.common.appiumby import AppiumBy
 
-from pages.base_page import BasePage
+import pages
 
 
-class TeamsPage(BasePage):
+class TeamsPage(pages.BasePage):
     __teams_tab = (AppiumBy.XPATH,"//android.widget.TextView[@text=\"TEAMS\"]")
     __team_name_heading = (AppiumBy.ID, "com.fivemobile.thescore:id/team_name")
     __team_stats = (AppiumBy.XPATH, "//android.widget.LinearLayout[@content-desc=\"Team Stats\"]")

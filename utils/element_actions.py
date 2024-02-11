@@ -17,12 +17,24 @@ class ElementActions:
             try:
                 if attempt > 0:
                     # Handle intermediate elements before retrying
-                    self.handle_intermediate_elements()
+                    self._handle_intermediate_elements()
                 return operation(locator, *args, **kwargs)
             except (TimeoutException, WebDriverException) as e:
                 logging.info(f"Attempt {attempt + 1} failed for {locator}: {e}")
                 last_exception = e
         raise last_exception  # Raise the last exception if all attempts fail
+
+    def _handle_intermediate_elements(self):
+        """Attempts to handle any intermediate elements based on the centralized list."""
+        for locator in self.intermediate_elements:
+            try:
+                element = WebDriverWait(self.driver, 2).until(ec.visibility_of_element_located(locator))
+                element.click()
+                # Tp Ensure the UI is stabilized and intermediate element no longer exists
+                WebDriverWait(self.driver, 10).until_not(ec.visibility_of_element_located(locator))
+            except TimeoutException:
+                # If the intermediate element is not found or not clickable, assume it's not present and move on.
+                continue
 
     def click(self, locator):
         """Waits for an element to be clickable and then clicks it, with retries."""
@@ -41,14 +53,3 @@ class ElementActions:
         action = lambda loc: WebDriverWait(self.driver, 10).until(ec.visibility_of_element_located(loc)).send_keys(send_text)
         self._perform_with_retry(action, locator)
 
-    def handle_intermediate_elements(self):
-        """Attempts to handle any intermediate elements based on the centralized list."""
-        for locator in self.intermediate_elements:
-            try:
-                element = WebDriverWait(self.driver, 2).until(ec.visibility_of_element_located(locator))
-                element.click()
-                # Tp Ensure the UI is stabilized and intermediate element no longer exists
-                WebDriverWait(self.driver, 10).until_not(ec.visibility_of_element_located(locator))
-            except TimeoutException:
-                # If the intermediate element is not found or not clickable, assume it's not present and move on.
-                continue

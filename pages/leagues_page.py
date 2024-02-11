@@ -2,10 +2,10 @@ import logging
 
 from appium.webdriver.common.appiumby import AppiumBy
 
-from pages.base_page import BasePage
+import pages
 
 
-class LeaguesPage(BasePage):
+class LeaguesPage(pages.BasePage):
     __leagues_tab = (AppiumBy.XPATH,"//*[@resource-id=\"com.fivemobile.thescore:id/navigation_bar_item_small_label_view\" and @text=\"Leagues\"]")
     __leagues_heading = (AppiumBy.XPATH,"//*[@resource-id=\"com.fivemobile.thescore:id/titleTextView\" and @text=\"Leagues\"]")
 

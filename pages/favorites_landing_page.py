@@ -1,9 +1,9 @@
 from appium.webdriver.common.appiumby import AppiumBy
 
-from pages.base_page import BasePage
+import pages
 
 
-class FavoritesLandingPage(BasePage):
+class FavoritesLandingPage(pages.BasePage):
     __search_text_view = (AppiumBy.ID, "com.fivemobile.thescore:id/search_bar_text_view")
 
 

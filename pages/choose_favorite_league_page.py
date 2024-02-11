@@ -1,9 +1,9 @@
 from appium.webdriver.common.appiumby import AppiumBy
 
-from pages.base_page import BasePage
+import pages
 
 
-class FavoriteLeaguePage(BasePage):
+class FavoriteLeaguePage(pages.BasePage):
     __continue_btn = (AppiumBy.ID, "com.fivemobile.thescore:id/btn_primary")
 
     def continue_without_selecting(self):

@@ -4,7 +4,7 @@ allure-report/
 .venv/
 *.apk
 __pycache__/
-node-modules/
+node_modules/
 package.json
 package-lock.json
 # IDE/Editor specific

@@ -2,21 +2,17 @@ import logging
 
 import pytest
 
-from pages.choose_favorite_league_page import FavoriteLeaguePage
-from pages.choose_favorite_teams_page import FavoriteTeamsPage
-from pages.favorites_landing_page import FavoritesLandingPage
-from pages.notifications_page import NotificationsPage
-from pages.welcome_page import InitialPage
+import pages
 
 
 @pytest.fixture(scope='function')
 def navigate_to_home_page(driver, page_manager):
     logging.info(driver.session_id)
-    initial_page = page_manager.get_page(InitialPage, driver)
-    favorite_league_page = page_manager.get_page(FavoriteLeaguePage, driver)
-    favorite_teams_page = page_manager.get_page(FavoriteTeamsPage, driver)
-    notifications_page = page_manager.get_page(NotificationsPage, driver)
-    favorites_landing_page = page_manager.get_page(FavoritesLandingPage, driver)
+    initial_page = page_manager.get_page(pages.InitialPage, driver)
+    favorite_league_page = page_manager.get_page(pages.FavoriteLeaguePage, driver)
+    favorite_teams_page = page_manager.get_page(pages.FavoriteTeamsPage, driver)
+    notifications_page = page_manager.get_page(pages.NotificationsPage, driver)
+    favorites_landing_page = page_manager.get_page(pages.FavoritesLandingPage, driver)
     initial_page.navigate_initial_setup()
     favorite_league_page.continue_without_selecting()
     favorite_teams_page.choose_default_continue()
