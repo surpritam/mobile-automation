@@ -15,10 +15,12 @@ def driver(request):
     Prepare for the test.
     """
     logging.info("Initializing the Appium driver.")
-    _driver = get_appium_driver()
-    yield _driver
+    driver = get_appium_driver()
+    driver_session_id = driver.session_id
+    logging.info(f"Driver session id {driver_session_id}")
+    yield driver
     logging.info("Quitting the Appium driver.")
-    _driver.quit()
+    driver.quit()
 
 @pytest.fixture(scope="session")
 def page_manager():
@@ -26,7 +28,7 @@ def page_manager():
     manager = PageObjectManager()
     yield manager
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def load_test_data(request):
     data_dir = os.path.join(os.path.dirname(__file__), 'data')
     file_name = request.param

@@ -1,3 +1,5 @@
+import logging
+
 import pytest
 
 from pages.choose_favorite_league_page import FavoriteLeaguePage
@@ -9,6 +11,7 @@ from pages.welcome_page import InitialPage
 
 @pytest.fixture(scope='function')
 def navigate_to_home_page(driver, page_manager):
+    logging.info(driver.session_id)
     initial_page = page_manager.get_page(InitialPage, driver)
     favorite_league_page = page_manager.get_page(FavoriteLeaguePage, driver)
     favorite_teams_page = page_manager.get_page(FavoriteTeamsPage, driver)
