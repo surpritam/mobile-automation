@@ -21,3 +21,8 @@ def navigate_to_home_page(driver, page_manager):
     expected_title_text = "Teams, Players, and News"
     assert actual_text == expected_title_text, f"Expected title text '{expected_title_text}', but found '{actual_text}'"
 
+@pytest.fixture(scope='function')
+def navigate_to_search(driver, navigate_to_home_page,  page_manager):
+    favorites_landing_page = page_manager.get_page(pages.FavoritesLandingPage, driver)
+    favorites_landing_page.enter_text_search_view()
+

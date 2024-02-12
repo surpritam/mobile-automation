@@ -1,1 +1,16 @@
-{}
+[
+    {
+        "player_name": "Ilya Samsonov",
+        "player_info": {
+            "title": "Birth Date",
+            "value": "1997-02-22"
+        }
+    },
+    {
+        "player_name": "Raheem Sterling",
+        "player_info": {
+            "title": "Birth Date",
+            "value": "1994-12-08"
+        }
+    }
+]

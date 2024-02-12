@@ -1,4 +1,16 @@
-{
-  "teams": ["Chelsea","Mercedes", "Ferrari"],
-  "favoriteTeam": "Mercedes"
-}
+[
+    {
+        "team_name": "Toronto Maple Leafs",
+        "stats": {
+            "header": "OFFENSIVE STATS",
+            "header_secondary": "(RANK)"
+        }
+    },
+    {
+        "team_name": "Chelsea",
+        "stats": {
+            "header": "STATS (EPL)",
+            "header_secondary": "(RANK)"
+        }
+    }
+]

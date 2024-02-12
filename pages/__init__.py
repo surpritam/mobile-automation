@@ -8,3 +8,5 @@ from pages.notifications_page import NotificationsPage
 from pages.leagues_page import LeaguesPage
 from pages.search_page import SearchPage
 from pages.teams_page import TeamsPage
+from pages.navigation_pages import NavigationPages
+from pages.players_page import PlayersPage
