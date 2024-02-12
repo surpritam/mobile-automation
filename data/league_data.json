@@ -1,1 +1,12 @@
-{}
+[
+    {
+        "league_name": "NBA",
+        "sub_tab": "Standings",
+        "league_standings": "Conference"
+    },
+    {
+        "league_name": "NCAA Football",
+        "sub_tab": "Standings",
+        "league_standings": "STANDINGS"
+    }
+]

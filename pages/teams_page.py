@@ -49,7 +49,6 @@ class TeamsPage(pages.BasePage):
         self.verify_team_stats(expected_team_stats)
 
     @allure.step("Verify team stats heading")
-
     def verify_team_stats(self, expected_team_stats):
         logging.info(f"Expected status {expected_team_stats}")
         actual_team_stats_header = self.actions.get_element(self.__team_stats_header).text
