@@ -8,6 +8,7 @@ import pages
 
 @allure.testcase("Test Teams")
 @pytest.mark.parametrize('load_test_data',['teams_data.json'], indirect= True)
+@pytest.mark.smoke
 def test_teams(driver, load_test_data, navigate_to_search, page_manager):
     for team_data in load_test_data:
         search_page = page_manager.get_page(pages.SearchPage, driver)
