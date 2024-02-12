@@ -5,7 +5,9 @@ import pytest
 
 import pages
 
-
+'''
+Tests related to Teams
+'''
 @allure.testcase("Test Teams")
 @pytest.mark.parametrize('load_test_data',['teams_data.json'], indirect= True)
 @pytest.mark.smoke

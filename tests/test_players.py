@@ -3,7 +3,9 @@ import pytest
 
 import pages
 
-
+'''
+Tests related to Players
+'''
 @allure.testcase("Test Players")
 @pytest.mark.parametrize('load_test_data',['player_data.json'], indirect= True)
 def test_player(driver, load_test_data, navigate_to_search, page_manager):
@@ -18,3 +20,8 @@ def test_player(driver, load_test_data, navigate_to_search, page_manager):
         players_page.verify_player_info(player_data["player_info"])
         navigation_page = page_manager.get_page(pages.NavigationPages, driver)
         navigation_page.navigate_back()
+
+@allure.testcase("Test Players failing")
+def test_player_failing(driver, navigate_to_home_page, page_manager):
+    search_page = page_manager.get_page(pages.SearchPage, driver)
+    search_page.search("Raheem Sterling")

@@ -6,7 +6,9 @@ from appium.webdriver.common.touch_action import TouchAction
 
 import pages
 
-
+'''
+Page elements and methods related to Leagues page
+'''
 class LeaguesPage(pages.BasePage):
     _leagues_tab = (AppiumBy.XPATH,"//*[@resource-id=\"com.fivemobile.thescore:id/navigation_bar_item_small_label_view\" and @text=\"Leagues\"]")
     _leagues_heading = (AppiumBy.XPATH,"//*[@resource-id=\"com.fivemobile.thescore:id/titleTextView\" and @text=\"Leagues\"]")

@@ -1,5 +1,28 @@
 #!/bin/bash
 
+# Function to initialize and activate virtual environment
+create_and_activate_venv() {
+    # Create virtual environment
+    $1 -m venv venv
+    echo "Virtual environment created."
+
+    # Activate virtual environment
+    source venv/bin/activate
+    echo "Virtual environment activated."
+}
+
+# Check for Python3 or Python and create virtual environment
+if command -v python3 &>/dev/null; then
+    echo "Using python3 to create virtual environment."
+    create_and_activate_venv python3
+elif command -v python &>/dev/null; then
+    echo "Using python to create virtual environment."
+    create_and_activate_venv python
+else
+    echo "Python is not installed. Please install Python and try again."
+    exit 1
+fi
+
 # Set directories for Allure results and reports
 results_dir="allure-results"
 report_dir="allure-report"
@@ -33,5 +56,8 @@ pytest $TEST_COMMAND --alluredir=$results_dir
 
 # Generate the Allure report in a specific directory
 npx allure-commandline generate $results_dir -o $report_dir --clean
-
 echo "Allure report generated in $report_dir"
+
+# Automatically open the Allure report
+echo "Opening Allure report..."
+npx allure-commandline open $report_dir

@@ -1,6 +1,10 @@
 import logging
 
-
+'''
+The PageObjectManager class optimizes the management of page objects within a session scope, storing and reusing page object instances via a dictionary. 
+It ensures that each page object's WebDriver is consistently updated after each test, facilitating seamless transitions between tests and maintaining reliable interactions across web elements. 
+This approach enhances resource efficiency and ensures driver session relevance throughout the testing lifecycle.
+'''
 class PageObjectManager:
     def __init__(self):
         self.pages = {}

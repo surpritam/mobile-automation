@@ -3,7 +3,9 @@ import pytest
 
 import pages
 
-
+'''
+Tests related to Leagues
+'''
 @allure.testcase("Test Leagues")
 @pytest.mark.parametrize('load_test_data',['league_data.json'], indirect= True)
 @pytest.mark.regression

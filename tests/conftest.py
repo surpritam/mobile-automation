@@ -4,7 +4,9 @@ import pytest
 
 import pages
 
-
+'''
+Stores all test pre-requisite workflows
+'''
 @pytest.fixture(scope='function')
 def navigate_to_home_page(driver, page_manager):
     logging.info(driver.session_id)

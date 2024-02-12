@@ -1,3 +1,6 @@
+'''
+Reference to all page imports
+'''
 from pages.base_page import BasePage
 from pages.intermediate_elements_page import IntermediateElementsPage
 from pages.welcome_page import InitialPage

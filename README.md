@@ -6,8 +6,8 @@ This testing framework is developed for mobile application testing, utilizing Py
 
 - [Python](https://www.python.org/downloads/) >= 3.x installed
 - [Node/npm](https://nodejs.org/) installed
-- [Android Studio](https://developer.android.com/studio) installed with `ANDROID_HOME` added to PATH
 - [Java](https://www.oracle.com/ca-en/java/technologies/downloads/) installed with `JAVA_HOME` added to PATH
+- [Android Studio](https://developer.android.com/studio) installed with `ANDROID_HOME` added to PATH
 - [Appium](https://appium.io/docs/en/2.2/quickstart/install/) installed
 - [UIAutomator2](https://appium.io/docs/en/2.0/quickstart/uiauto2-driver/) driver installed
 
@@ -15,10 +15,45 @@ This testing framework is developed for mobile application testing, utilizing Py
 
 1. Clone the repository to your local machine.
 2. Navigate to the project folder(if not already there)
-3. Run `setup.sh` to install all project dependencies and set up the virtual environment.
+3. Run `setup.sh` to install all project dependencies.
    ```sh
    ./setup.sh
+   ```
 
+## Creating Tests
+
+- Add page elements and methods under pages.
+- (If new Page is created) Add the import to pages/__init__.py.
+- Add tests under tests/. 
+- Ensure pytest naming standards are followed.
+
+## Running Tests
+
+The framework supports several ways to run tests, enabling you to execute the entire test suite, run specific tests by tag, or execute tests contained within a single test file. Below are the commands you can use:
+### Pre-requisites
+- Add the app(apk) file under `resources/` and update the filename("app") in `test_config.json`
+- Start the Android device emulator from Android Studio
+- Appium server is started in localhost port 4723
+
+### Run All Tests
+
+To run all tests within the `tests/` package, use the following command:
+
+   ```sh
+   ./run_tests.sh
+   ```
+
+### Run Tests by Tag
+The framework utilizes pytest's tagging feature to categorize tests. To run tests associated with a specific tag (e.g., smoke or regression), use the -m option followed by the tag name:
+   ```sh
+   ./run_tests.sh -m tag_name ex: /run_tests.sh -m smoke
+   ```
+
+### Run a Specific Test File
+If you wish to run tests from a specific file only, simply pass the filename as an argument. Ensure the file is located under the tests/ package:
+   ```shell
+   ./run_tests.sh test_file.py ex: ./run_tests.sh test_login.py
+   ```
 ## Project Structure
 
 - `allure-report`: Stores the test run report (`index.html`).
@@ -38,4 +73,3 @@ This testing framework is developed for mobile application testing, utilizing Py
 - `run_tests.sh`: Shell script for test execution using a virtual environment on Mac/Linux.
 - `setup.sh`: Script to install project dependencies and initiate the virtual environment.
 
-Feel free to customize this template further to match your project's specific requirements, instructions, or any additional information you wish to include.

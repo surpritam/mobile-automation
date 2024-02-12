@@ -5,7 +5,9 @@ from appium.webdriver.common.appiumby import AppiumBy
 
 import pages
 
-
+'''
+Page elements and methods related to Players page
+'''
 class PlayersPage(pages.BasePage):
     _players_tab = (AppiumBy.ACCESSIBILITY_ID,"Players")
     _recycler_view = "com.fivemobile.thescore:id/recyclerView"

@@ -2,6 +2,9 @@ from appium.webdriver.common.appiumby import AppiumBy
 
 import pages
 
+'''
+Page elements and methods related to common navigation elements
+'''
 class NavigationPages(pages.BasePage):
     _navigate_up = (AppiumBy.XPATH, "//android.widget.ImageButton[@content-desc=\"Navigate up\"]")
 

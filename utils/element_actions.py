@@ -3,6 +3,11 @@ from selenium.common.exceptions import TimeoutException, WebDriverException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
+'''
+This script encapsulates common web element interactions to simplify and standardize automation tasks within the testing framework. 
+It provides a robust interface for executing actions such as clicking, sending keys, and retrieving elements, with built-in support for retries and dynamic driver updates. 
+This utility enhances test script readability and reliability by abstracting complex WebDriver commands into intuitive methods, facilitating easier maintenance and development of automated tests.
+'''
 class ElementActions:
     def __init__(self, driver, intermediate_elements_page):
         self.driver = driver

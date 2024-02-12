@@ -8,7 +8,9 @@ from datetime import datetime
 
 from pages.page_objects_manager import PageObjectManager
 
-
+'''
+Centralized pytest fixtures, configurations, and hooks for test setup and teardown processes. 
+'''
 @pytest.fixture(scope="function")
 def driver(request):
     """

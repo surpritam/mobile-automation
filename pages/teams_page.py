@@ -5,23 +5,25 @@ from appium.webdriver.common.appiumby import AppiumBy
 
 import pages
 
-
+'''
+Page elements and methods related to Teams page
+'''
 class TeamsPage(pages.BasePage):
-    __teams_tab = (AppiumBy.XPATH,"//android.widget.TextView[@text=\"TEAMS\"]")
-    __team_name_heading = (AppiumBy.ID, "com.fivemobile.thescore:id/team_name")
-    __team_stats = (AppiumBy.XPATH, "//android.widget.LinearLayout[@content-desc=\"Team Stats\"]")
-    __team_stats_header = (AppiumBy.XPATH, "//android.widget.TextView[@resource-id=\"com.fivemobile.thescore:id/header_text\"]")
-    __team_stats_header_secondary = (AppiumBy.XPATH, "//android.widget.TextView[@resource-id=\"com.fivemobile.thescore:id/header_secondary_text\"]")
+    _teams_tab = (AppiumBy.XPATH,"//android.widget.TextView[@text=\"TEAMS\"]")
+    _team_name_heading = (AppiumBy.ID, "com.fivemobile.thescore:id/team_name")
+    _team_stats = (AppiumBy.XPATH, "//android.widget.LinearLayout[@content-desc=\"Team Stats\"]")
+    _team_stats_header = (AppiumBy.XPATH, "//android.widget.TextView[@resource-id=\"com.fivemobile.thescore:id/header_text\"]")
+    _team_stats_header_secondary = (AppiumBy.XPATH, "//android.widget.TextView[@resource-id=\"com.fivemobile.thescore:id/header_secondary_text\"]")
     _team_list_recycler_view = "com.fivemobile.thescore:id/recyclerView"
     _team_info = (AppiumBy.XPATH, "//android.widget.LinearLayout[@content-desc=\"Info\"]")
 
     @allure.step("Navigate to Teams tab")
     def navigate_to_teams(self):
-        self.actions.click(self.__teams_tab)
+        self.actions.click(self._teams_tab)
 
     @allure.step("Verify team name heading")
     def verify_team_name_heading(self, team_name):
-        actual_team_name = self.actions.get_element(self.__team_name_heading).text
+        actual_team_name = self.actions.get_element(self._team_name_heading).text
         try:
             assert (actual_team_name.lower() == team_name.lower())
         except AssertionError as ae:
@@ -37,8 +39,8 @@ class TeamsPage(pages.BasePage):
 
     @allure.step("Select team stats")
     def navigate_team_stats(self, team_name, expected_team_stats):
-        self.actions.click(self.__team_stats)
-        is_team_status_selected = self.actions.get_element(self.__team_stats).is_selected()
+        self.actions.click(self._team_stats)
+        is_team_status_selected = self.actions.get_element(self._team_stats).is_selected()
         try:
             assert (is_team_status_selected == True)
         except AssertionError as ae:
@@ -51,8 +53,8 @@ class TeamsPage(pages.BasePage):
     @allure.step("Verify team stats heading")
     def verify_team_stats(self, expected_team_stats):
         logging.info(f"Expected status {expected_team_stats}")
-        actual_team_stats_header = self.actions.get_element(self.__team_stats_header).text
-        actual_team_stats_header_secondary = self.actions.get_element(self.__team_stats_header_secondary).text
+        actual_team_stats_header = self.actions.get_element(self._team_stats_header).text
+        actual_team_stats_header_secondary = self.actions.get_element(self._team_stats_header_secondary).text
         try:
             assert (actual_team_stats_header == expected_team_stats['header'])
         except AssertionError as ae:
