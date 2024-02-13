@@ -3,11 +3,14 @@ import logging
 import pages
 from utils.element_actions import ElementActions
 
-'''
-This Python script provides functions for configuring and initializing an Appium driver for mobile app testing. It includes:
-Configuration Loading: Loads testing settings from test_config.json, specifying Appium driver capabilities.
-Driver Initialization: Creates and returns an Appium driver with settings derived from the loaded configuration, ready for automating tests on Android devices.
-'''
+"""
+This BasePage class serves as the foundation for all page objects within the framework,
+centralizing common functionalities and properties.Integrates an action handler for performing actions like clicks and text inputs,
+equipped to handle intermediate elements like pop-ups or modals dynamically encountered during tests.
+The class provides a mechanism to update the web driver instance, ensuring actions are performed
+using the current session's driver, facilitating seamless test execution across different pages.
+"""
+
 class BasePage:
     def __init__(self, driver):
         self.driver = driver

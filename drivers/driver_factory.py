@@ -3,7 +3,11 @@ from appium.options.android import UiAutomator2Options
 import os
 import json
 
-
+'''
+This Python script provides functions for configuring and initializing an Appium driver for mobile app testing. It includes:
+Configuration Loading: Loads testing settings from test_config.json, specifying Appium driver capabilities.
+Driver Initialization: Creates and returns an Appium driver with settings derived from the loaded configuration, ready for automating tests on Android devices.
+'''
 def __load_config():
     config_path = os.path.join(os.path.dirname(__file__),'..','config/test_config.json')
     with open(config_path,'r') as config_file:

@@ -35,7 +35,7 @@ class ElementActions:
             try:
                 element = WebDriverWait(self.driver, 2).until(ec.visibility_of_element_located(locator))
                 element.click()
-                # Tp Ensure the UI is stabilized and intermediate element no longer exists
+                # To Ensure the UI is stabilized and intermediate element no longer exists
                 WebDriverWait(self.driver, 10).until_not(ec.visibility_of_element_located(locator))
             except TimeoutException:
                 # If the intermediate element is not found or not clickable, assume it's not present and move on.
