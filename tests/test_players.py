@@ -9,6 +9,9 @@ Tests related to Players
 @allure.testcase("Test Players")
 @pytest.mark.parametrize('load_test_data',['player_data.json'], indirect= True)
 def test_player(driver, load_test_data, navigate_to_search, page_manager):
+    '''
+        Scenario: Select a player and verify info
+    '''
     for player_data in load_test_data:
         search_page = page_manager.get_page(pages.SearchPage, driver)
         search_page.search(player_data["player_name"])
@@ -23,5 +26,7 @@ def test_player(driver, load_test_data, navigate_to_search, page_manager):
 
 @allure.testcase("Test Players failing")
 def test_player_failing(driver, navigate_to_home_page, page_manager):
-    search_page = page_manager.get_page(pages.SearchPage, driver)
-    search_page.search("Raheem Sterling")
+    '''
+        Scenario: This test is designed to fail to showcase screenshot capturing in reports
+    '''
+    assert False

@@ -12,6 +12,9 @@ Tests related to Teams
 @pytest.mark.parametrize('load_test_data',['teams_data.json'], indirect= True)
 @pytest.mark.smoke
 def test_teams(driver, load_test_data, navigate_to_search, page_manager):
+    '''
+        Scenario: Select a team and verify stats
+    '''
     for team_data in load_test_data:
         search_page = page_manager.get_page(pages.SearchPage, driver)
         search_page.search(team_data["team_name"])

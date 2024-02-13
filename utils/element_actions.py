@@ -25,7 +25,7 @@ class ElementActions:
                     self._handle_intermediate_elements()
                 return operation(locator, *args, **kwargs)
             except (TimeoutException, WebDriverException) as e:
-                logging.info(f"Attempt {attempt + 1} failed for {locator}: {e}")
+                logging.error(f"Attempt {attempt + 1} failed for {locator}: {e}")
                 last_exception = e
         raise last_exception  # Raise the last exception if all attempts fail
 

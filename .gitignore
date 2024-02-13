@@ -2,6 +2,7 @@ allure-results/
 allure-report/
 *.log
 .venv/
+venv/
 *.apk
 __pycache__/
 node_modules/
@@ -11,3 +12,5 @@ package-lock.json
 .vscode/
 .idea/
 *.swp
+resources/
+.DS_Store
